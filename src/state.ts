@@ -11,12 +11,17 @@ import {
   Article,
   AvailableTimeSlots,
   Booking,
+  ClinicSearchForm,
+  ClinicSuggestion,
   Department,
   DepartmentGroup,
   Doctor,
   Feedback,
+  HealthTip,
   Inquiry,
   Invoice,
+  MedicationSession,
+  PrescriptionItem,
   Service,
   SymptomDescription,
   TimeSlot,
@@ -32,6 +37,11 @@ import {
   mockDepartmentGroups,
   mockSymptoms,
   mockFeedbackCategories,
+  mockHealthTip,
+  mockAreas,
+  mockClinicSuggestion,
+  mockMedicationSchedule,
+  mockPrescriptionItems,
 } from "./utils/mock";
 import { getUserInfo } from "zmp-sdk";
 import { toLowerCaseNonAccentVietnamese, wait } from "./utils/miscellaneous";
@@ -190,6 +200,29 @@ export const feedbackFormState = atomWithReset<Feedback>({
   description: "",
   images: [],
   category: "",
+});
+
+/**
+ * Clinic finder flow
+ */
+export const healthTipState = atom<Promise<HealthTip>>(mockHealthTip);
+
+export const areasState = atom<Promise<string[]>>(mockAreas);
+
+export const clinicSuggestionState =
+  atom<Promise<ClinicSuggestion>>(mockClinicSuggestion);
+
+export const medicationScheduleState = atom<Promise<MedicationSession[]>>(
+  mockMedicationSchedule
+);
+
+export const prescriptionItemsState = atom<Promise<PrescriptionItem[]>>(
+  mockPrescriptionItems
+);
+
+export const clinicSearchFormState = atomWithReset<ClinicSearchForm>({
+  description: "",
+  area: "",
 });
 
 /**

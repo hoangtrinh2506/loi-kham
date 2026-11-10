@@ -88,3 +88,53 @@ interface Article {
   image: string;
   content: string;
 }
+
+export interface HealthTip {
+  text: string;
+  source: string;
+  reviewedAt: string;
+}
+
+export interface Clinic {
+  id: number;
+  name: string;
+  address: string;
+  area: string;
+  hours: string;
+  verified: boolean;
+  verifiedAt?: string;
+  phone?: string;
+  website?: string;
+}
+
+export interface ClinicSuggestion {
+  specialty: string;
+  clinics: Clinic[];
+}
+
+export interface ClinicSearchForm {
+  description: string;
+  area: string;
+}
+
+export interface MedicationDose {
+  id: number;
+  name: string;
+  dose: string;
+  note: string;
+}
+
+export interface MedicationSession {
+  id: "morning" | "afternoon" | "evening";
+  label: string;
+  time: string;
+  doses: MedicationDose[];
+}
+
+export interface PrescriptionItem {
+  id: number;
+  name: string;
+  dose: string;
+  timesPerDay: number;
+  days: number;
+}

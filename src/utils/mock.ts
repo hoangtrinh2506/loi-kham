@@ -1,4 +1,11 @@
-import { Department, AvailableTimeSlots } from "@/types";
+import {
+  Department,
+  AvailableTimeSlots,
+  ClinicSuggestion,
+  HealthTip,
+  MedicationSession,
+  PrescriptionItem,
+} from "@/types";
 import TeddyNH from "@/static/doctors/teddynh.png";
 import DinhLD from "@/static/doctors/dinhld.png";
 import XungTD from "@/static/doctors/xungtd.png";
@@ -13,6 +20,98 @@ import exploreRoom from "@/static/explore/explore-room.png";
 import exploreDishes from "@/static/explore/explore-dishes.png";
 import exploreOmega3 from "@/static/explore/explore-omega-3.png";
 import newsThumbnail from "@/static/news.png";
+
+/**
+ * Clinic finder flow (sample data)
+ */
+export async function mockHealthTip(): Promise<HealthTip> {
+  return {
+    text: "Nhớ uống đủ nước trong ngày.",
+    source: "Dữ liệu mẫu",
+    reviewedAt: "20/10/2026",
+  };
+}
+
+export async function mockAreas() {
+  return [
+    "Quận 1",
+    "Quận 3",
+    "Quận 5",
+    "Quận 10",
+    "Bình Thạnh",
+    "Phú Nhuận",
+    "Tân Bình",
+    "Thủ Đức",
+  ];
+}
+
+export async function mockClinicSuggestion(): Promise<ClinicSuggestion> {
+  return {
+    specialty: "Tai Mũi Họng",
+    clinics: [
+      {
+        id: 1,
+        name: "Bệnh viện Tai Mũi Họng TP.HCM",
+        address: "155B Trần Quốc Thảo, Quận 3, TP.HCM",
+        area: "Quận 3",
+        hours: "Thứ 2 – Thứ 6, 7:00 – 16:30",
+        verified: true,
+        verifiedAt: "12/10/2026",
+      },
+      {
+        id: 2,
+        name: "Phòng khám Tai Mũi Họng Thành Đông",
+        address: "2A/2 Phan Thúc Duyện, Tân Bình, TP.HCM",
+        area: "Tân Bình",
+        hours: "Thứ 2 – Chủ nhật, 17:00 – 20:00",
+        verified: false,
+      },
+    ],
+  };
+}
+
+export async function mockMedicationSchedule(): Promise<MedicationSession[]> {
+  return [
+    {
+      id: "morning",
+      label: "Sáng",
+      time: "07:30",
+      doses: [
+        { id: 1, name: "Paracetamol 500mg", dose: "1 viên", note: "Sau ăn" },
+        { id: 2, name: "Vitamin C 500mg", dose: "1 viên", note: "Sau ăn" },
+      ],
+    },
+    {
+      id: "afternoon",
+      label: "Chiều",
+      time: "12:30",
+      doses: [
+        { id: 3, name: "Paracetamol 500mg", dose: "1 viên", note: "Sau ăn" },
+      ],
+    },
+    {
+      id: "evening",
+      label: "Tối",
+      time: "19:30",
+      doses: [
+        { id: 4, name: "Paracetamol 500mg", dose: "1 viên", note: "Sau ăn" },
+        {
+          id: 5,
+          name: "Cetirizin 10mg",
+          dose: "1 viên",
+          note: "Trước khi ngủ",
+        },
+      ],
+    },
+  ];
+}
+
+export async function mockPrescriptionItems(): Promise<PrescriptionItem[]> {
+  return [
+    { id: 1, name: "Amoxicillin 500mg", dose: "1 viên", timesPerDay: 2, days: 7 },
+    { id: 2, name: "Paracetamol 500mg", dose: "1 viên", timesPerDay: 3, days: 5 },
+  ];
+}
 
 export async function mockSymptoms() {
   return [

@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap");
+
 :root {
-  --primary: #00abbb;
-  --primary-gradient: #00bead;
-  --highlight: #01bdaf1a;
-  --background: #f2f9f9;
-  --disabled: #9a9a9a;
+  --primary: #0e7c6b;
+  --primary-dark: #0b5e51;
+  --primary-gradient: #0b5e51;
+  --highlight: #e2f2ee;
+  --background: #f4f7f6;
+  --foreground: #10302b;
+  --muted: #556a65;
+  --disabled: #5e716c;
 
   --zaui-light-body-background-color: var(--background);
   --zaui-light-input-border-color: rgba(0, 0, 0, 0.1);
